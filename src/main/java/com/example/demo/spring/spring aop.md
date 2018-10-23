@@ -37,7 +37,7 @@
 * 看给容器中注册了什么组件，这个组件什么时候工作，这个组件的功能是什么？
   		`@EnableAspectJAutoProxy`；
   		
-  * `@EnableAspectJAutoProxy`是什么？
+  * `@EnableAspectJAutoProxy`:
   
       `@Import(AspectJAutoProxyRegistrar.class)`：给容器中导入 *AspectJAutoProxyRegistrar*
        利用 *AspectJAutoProxyRegistrar* 自定义给容器中注册bean；*BeanDefinetion*
