@@ -36,7 +36,7 @@ public interface Example {
     }
 
     // 这个方法不是公共 API 的一部分
-    void init() {
+    default void init() {
         System.out.println("正在给大佬准备洗脚水...");
     }
 
