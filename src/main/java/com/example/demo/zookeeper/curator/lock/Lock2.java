@@ -25,7 +25,6 @@ public class Lock2 {
 			count--;
 			System.out.println(count);
 		} finally {
-		
 		}
 	}
 	

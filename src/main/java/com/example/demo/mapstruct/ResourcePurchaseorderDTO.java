@@ -1,6 +1,5 @@
 package com.example.demo.mapstruct;
 
-import javax.persistence.Column;
 import java.math.BigDecimal;
 import java.sql.Timestamp;
 
@@ -8,176 +7,126 @@ import java.sql.Timestamp;
  * 
  * @date 2018-10-29
  */
-
-
-public class OResourcePurchaseorder  {
+public class ResourcePurchaseorderDTO {
 
     /**
      * 采购单ID
      */
-
-	
-	
 	private Long purchaseOrderId;
 
     /**
      * 订单号
      */
-	
-	
 	private Long orderId;
 
     /**
      * 来源订单ID（0为没有来源订单）
      */
-	
-	
 	private Long sourceOrderId;
 
     /**
      * 来源订单类型（销售子订单S，其它）
      */
-	
-	
 	private String sourceOrderType;
 
     /**
      * 状态(P-审核通过；C-取消；V-生效；I-作废)
      */
-	
-	
 	private String status;
 
     /**
      * 成本
      */
-	
-	
 	private BigDecimal cost;
 
     /**
      * 份数
      */
-	
-	
 	private Integer quantity;
 
     /**
      * 资源编号
      */
-	
-	
 	private Long resourceId;
 
     /**
      * 资源类型
      */
-	
-	
 	private String resourceType;
 
     /**
      * 资源名称
      */
-	
-	
 	private String resourceName;
 
     /**
      * 资源描述
      */
-	
-	
 	private String resourceDesc;
 
     /**
      * 行程段编号
      */
-	
-	
 	private Integer segment;
 
     /**
      * 成人数量
      */
-	
-	
 	private Integer adultQuantity;
 
     /**
      * 儿童份数
      */
-	
-	
 	private Integer childQuantity;
 
     /**
      * 成人底价
      */
-	
-	
 	private BigDecimal adultCost;
 
     /**
      * 儿童底价
      */
-	
-	
 	private BigDecimal childCost;
 
     /**
      * 操作员
      */
-	
-	
 	private String eid;
 
     /**
      * 操作描述
      */
-	
-	
 	private String remark;
 
     /**
      * 使用日期
      */
-	
-	
 	private Timestamp useDate;
 
     /**
      * 币种
      */
-	
-	
 	private String currency;
 
     /**
      * 汇率
      */
-	
-	
 	private BigDecimal exchange;
 
     /**
      * 供应商ID
      */
-	
-	
 	private Long providerId;
 
     /**
      * 创建时间
      */
-	
-	
 	private Timestamp datacreateLasttime;
 
     /**
      * 最后一次修改时间
      */
-	
 	private Timestamp datachangeLasttime;
 
 	public Long getPurchaseOrderId() {

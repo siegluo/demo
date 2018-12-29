@@ -1,6 +1,8 @@
 package com.example.demo.mapstruct;
 
 import org.mapstruct.Mapper;
+import org.mapstruct.Mapping;
+import org.mapstruct.Mappings;
 
 @Mapper(componentModel = "spring")
 public interface GoodInfoMapper
@@ -34,13 +36,15 @@ public interface GoodInfoMapper
 //    })
 //    SubOrderRequestDto generateSubOrderRequestDto(OnlineOTourTrainSubOrderRequest onlineOTourTrainSubOrderRequest);
 //
-//    @Mappings({
-//            @Mapping(source = "id", target = "pkId"),
-//            @Mapping(source = "subOrderId", target = "trainSubOrderId"),
-//            @Mapping(source = "resultCode", target = "errorCode"),
-//            @Mapping(source = "resultMsg", target = "reason")
-//    })
-//    OTourTrainSubOrderRequest generateOTourTrainSubOrderRequest(SubOrderRequestDto subOrderRequestDto);
+    @Mappings({
+            @Mapping(source = "purchaseOrderID", target = "purchaseOrderId"),
+            @Mapping(source = "sourceOrderID", target = "sourceOrderId"),
+            @Mapping(source = "orderID", target = "orderId"),
+            @Mapping(source = "providerID", target = "providerId"),
+            @Mapping(source = "resourceID", target = "resourceId")
+    })
+    OResourcePurchaseorder generateOResourcePurchaseorder(PurchasePurchaseOrder purchasePurchaseOrder);
+    ResourcePurchaseorderDTO generateResourcePurchaseorderDTO(OResourcePurchaseorder purchasePurchaseOrder);
 
 //    @Mappings({
 //            @Mapping(source = "subOrderKey", target = "trainSubOrderId"),

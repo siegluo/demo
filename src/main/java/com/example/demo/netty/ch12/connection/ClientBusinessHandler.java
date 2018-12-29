@@ -1,14 +1,11 @@
-package com.example.demo.netty.ch12.thread;
+package com.example.demo.netty.ch12.connection;
 
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandler;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
 
-import java.util.Deque;
-import java.util.Queue;
-import java.util.Stack;
-import java.util.concurrent.TimeUnit;
+import java.util.concurrent.*;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
 
@@ -48,7 +45,18 @@ public class ClientBusinessHandler extends SimpleChannelInboundHandler<ByteBuf> 
     protected void channelRead0(ChannelHandlerContext ctx, ByteBuf msg) {
         totalResponseTime.addAndGet(System.currentTimeMillis() - msg.readLong());
         totalRequest.incrementAndGet();
+        FutureTask<String> future = new FutureTask<>(new Callable() {
+            @Override
+            public Object call() throws Exception {
+                return msg;
+            }
+        });
 
+        //创建一个固定线程的线程池且线程数为1,
+        ExecutorService executor = Executors.newFixedThreadPool(1);
+        //这里提交任务future,则开启线程执行RealData的call()方法执行
+        Future submit = executor.submit(future);
+        FutureCache.setFuture(Integer.parseInt(msg.toString()),submit);
         if (beginTime.compareAndSet(0, System.currentTimeMillis())) {
             THREAD.start();
         }

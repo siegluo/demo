@@ -1,4 +1,4 @@
-package com.example.demo.netty.ch12.thread;
+package com.example.demo.netty.ch12.connection;
 
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
@@ -16,6 +16,7 @@ public class ServerBusinessHandler extends SimpleChannelInboundHandler<ByteBuf> 
     @Override
     protected void channelRead0(ChannelHandlerContext ctx, ByteBuf msg) {
         ByteBuf data = Unpooled.directBuffer();
+        long l = msg.readLong();
         data.writeBytes(msg);
         Object result = getResult(data);
         ctx.channel().writeAndFlush(result);

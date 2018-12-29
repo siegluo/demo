@@ -1,197 +1,183 @@
-package com.ctrip.tour.order.train.actionservice.dal.pkgmyordersharddb.entity;
+package com.example.demo.mapstruct;
 
 import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
-import com.ctrip.platform.dal.dao.annotation.Database;
-import com.ctrip.platform.dal.dao.annotation.Sensitive;
-import com.ctrip.platform.dal.dao.annotation.Type;
-import java.sql.Types;
 import java.math.BigDecimal;
 import java.sql.Timestamp;
 
-import com.ctrip.platform.dal.dao.DalPojo;
-
 /**
- * @author xy徐杨(IT)
+ * 
  * @date 2018-10-29
  */
-@Entity
-@Database(name = "PkgMyOrderShardDB")
-@Table(name = "o_resource_purchaseorder")
-public class OResourcePurchaseorder implements DalPojo {
+
+
+public class OResourcePurchaseorder  {
 
     /**
      * 采购单ID
      */
-    @Id
-	@Column(name = "PurchaseOrderId")
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Type(value = Types.BIGINT)
+
+	
+	
 	private Long purchaseOrderId;
 
     /**
      * 订单号
      */
-	@Column(name = "OrderId")
-	@Type(value = Types.BIGINT)
+	
+	
 	private Long orderId;
 
     /**
      * 来源订单ID（0为没有来源订单）
      */
-	@Column(name = "SourceOrderId")
-	@Type(value = Types.BIGINT)
+	
+	
 	private Long sourceOrderId;
 
     /**
      * 来源订单类型（销售子订单S，其它）
      */
-	@Column(name = "SourceOrderType")
-	@Type(value = Types.VARCHAR)
+	
+	
 	private String sourceOrderType;
 
     /**
      * 状态(P-审核通过；C-取消；V-生效；I-作废)
      */
-	@Column(name = "Status")
-	@Type(value = Types.VARCHAR)
+	
+	
 	private String status;
 
     /**
      * 成本
      */
-	@Column(name = "Cost")
-	@Type(value = Types.DECIMAL)
+	
+	
 	private BigDecimal cost;
 
     /**
      * 份数
      */
-	@Column(name = "Quantity")
-	@Type(value = Types.INTEGER)
+	
+	
 	private Integer quantity;
 
     /**
      * 资源编号
      */
-	@Column(name = "ResourceId")
-	@Type(value = Types.BIGINT)
+	
+	
 	private Long resourceId;
 
     /**
      * 资源类型
      */
-	@Column(name = "ResourceType")
-	@Type(value = Types.VARCHAR)
+	
+	
 	private String resourceType;
 
     /**
      * 资源名称
      */
-	@Column(name = "ResourceName")
-	@Type(value = Types.VARCHAR)
+	
+	
 	private String resourceName;
 
     /**
      * 资源描述
      */
-	@Column(name = "ResourceDesc")
-	@Type(value = Types.VARCHAR)
+	
+	
 	private String resourceDesc;
 
     /**
      * 行程段编号
      */
-	@Column(name = "Segment")
-	@Type(value = Types.INTEGER)
+	
+	
 	private Integer segment;
 
     /**
      * 成人数量
      */
-	@Column(name = "AdultQuantity")
-	@Type(value = Types.INTEGER)
+	
+	
 	private Integer adultQuantity;
 
     /**
      * 儿童份数
      */
-	@Column(name = "ChildQuantity")
-	@Type(value = Types.INTEGER)
+	
+	
 	private Integer childQuantity;
 
     /**
      * 成人底价
      */
-	@Column(name = "AdultCost")
-	@Type(value = Types.DECIMAL)
+	
+	
 	private BigDecimal adultCost;
 
     /**
      * 儿童底价
      */
-	@Column(name = "ChildCost")
-	@Type(value = Types.DECIMAL)
+	
+	
 	private BigDecimal childCost;
 
     /**
      * 操作员
      */
-	@Column(name = "Eid")
-	@Type(value = Types.VARCHAR)
+	
+	
 	private String eid;
 
     /**
      * 操作描述
      */
-	@Column(name = "Remark")
-	@Type(value = Types.VARCHAR)
+	
+	
 	private String remark;
 
     /**
      * 使用日期
      */
-	@Column(name = "UseDate")
-	@Type(value = Types.TIMESTAMP)
+	
+	
 	private Timestamp useDate;
 
     /**
      * 币种
      */
-	@Column(name = "Currency")
-	@Type(value = Types.VARCHAR)
+	
+	
 	private String currency;
 
     /**
      * 汇率
      */
-	@Column(name = "Exchange")
-	@Type(value = Types.DECIMAL)
+	
+	
 	private BigDecimal exchange;
 
     /**
      * 供应商ID
      */
-	@Column(name = "ProviderId")
-	@Type(value = Types.BIGINT)
+	
+	
 	private Long providerId;
 
     /**
      * 创建时间
      */
-	@Column(name = "DataCreate_LastTime")
-	@Type(value = Types.TIMESTAMP)
+	
+	
 	private Timestamp datacreateLasttime;
 
     /**
      * 最后一次修改时间
      */
-	@Column(name = "DataChange_LastTime", insertable = false, updatable = false)
-	@Type(value = Types.TIMESTAMP)
+	
 	private Timestamp datachangeLasttime;
 
 	public Long getPurchaseOrderId() {

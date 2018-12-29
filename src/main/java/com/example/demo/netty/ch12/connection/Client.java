@@ -6,15 +6,30 @@ import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioSocketChannel;
 
+import java.util.concurrent.Future;
+
 import static com.example.demo.netty.ch12.connection.Constant.BEGIN_PORT;
 import static com.example.demo.netty.ch12.connection.Constant.N_PORT;
 
 public class Client {
 
-    private static final String SERVER_HOST = "192.168.1.42";
+    private static final String SERVER_HOST = "127.0.0.1";
 
     public static void main(String[] args) {
         new Client().start(BEGIN_PORT, N_PORT);
+        int index = 0;
+        int port;
+        for (int a = BEGIN_PORT;a<= N_PORT;a++){
+            port = a;
+            try {
+                ChannelFuture channelFuture = ConnectPool.getChannelFuture(port);
+                channelFuture.channel().writeAndFlush(port);
+                Object o = FutureCache.getFuture(port).get();
+                System.out.print(o.toString());
+            } catch (Exception e) {
+            }
+
+        }
     }
 
     public void start(final int beginPort, int nPort) {
@@ -27,14 +42,15 @@ public class Client {
         bootstrap.handler(new ChannelInitializer<SocketChannel>() {
             @Override
             protected void initChannel(SocketChannel ch) {
+                ch.pipeline().addLast(ClientBusinessHandler.INSTANCE);
             }
         });
 
 
         int index = 0;
         int port;
-        while (!Thread.interrupted()) {
-            port = beginPort + index;
+        for (int a = beginPort;a<= nPort;a++){
+            port = a;
             try {
                 ChannelFuture channelFuture = bootstrap.connect(SERVER_HOST, port);
                 channelFuture.addListener((ChannelFutureListener) future -> {
@@ -43,13 +59,11 @@ public class Client {
                         System.exit(0);
                     }
                 });
-                channelFuture.get();
+                ConnectPool.setChannelFuture(port, channelFuture);
             } catch (Exception e) {
             }
 
-            if (++index == nPort) {
-                index = 0;
-            }
+
         }
     }
 }
