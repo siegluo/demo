@@ -28,7 +28,7 @@ public class MinorGC {
         byte[] three ;
         byte[] four ;
 
-        one = new byte[4 * SIZE] ;
+        one = new byte[3 * SIZE] ;
 
 
         //再分配一个 5M 内存时，Eden区不够了，
