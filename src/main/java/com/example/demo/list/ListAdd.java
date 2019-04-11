@@ -1,21 +1,31 @@
 package com.example.demo.list;
 
-import java.util.*;
+import java.util.ArrayDeque;
+import java.util.ArrayList;
+import java.util.Deque;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class ListAdd {
 
     public static void main(String[] args) {
-        Deque<Integer> a = new ArrayDeque<>();
-        ArrayList<Integer> b = new ArrayList<>();
-//        a.push(1);
-//        a.push(2);
-        for (int i = 0; i < 5; i++) {
-            Integer poll = a.pollLast();
-            a.push(poll);
-            b.add(poll);
-        }
+        AtomicInteger a = new AtomicInteger(0);
+        boolean c =true;
+        getCount1(a,c);
+        ArrayList<Integer> list = new ArrayList<>();
+        Integer d = 0;
+        Integer b = getCount2(d,list);
         System.out.println(a);
-        System.out.println(b);
+//        Deque<Integer> a = new ArrayDeque<>();
+//        ArrayList<Integer> b = new ArrayList<>();
+////        a.push(1);
+////        a.push(2);
+//        for (int i = 0; i < 5; i++) {
+//            Integer poll = a.pollLast();
+//            a.push(poll);
+//            b.add(poll);
+//        }
+//        System.out.println(a);
+//        System.out.println(b);
 
 //        List arrayList = new ArrayList<>();
 //        List linkedList = new LinkedList<>();
@@ -41,6 +51,18 @@ public class ListAdd {
 //        linkedList.remove(2);
 //        System.out.println(linkedList);
 //        System.out.println(linkedList.indexOf(null));
+    }
+
+    private static Integer getCount2(Integer a, ArrayList<Integer> list) {
+        a += 1;
+        a = Integer.valueOf(a + 1);
+        list.add(a);
+        return Integer.valueOf(3);
+    }
+
+    private static void getCount1(AtomicInteger a, boolean c) {
+        a.incrementAndGet() ;
+        c=false;
     }
 
 }
