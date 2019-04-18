@@ -1,6 +1,6 @@
 package com.example.demo.jmh;
 
-import com.example.demo.socketio.nio.nio.NioSocketClient;
+import socketio.nio.nio.NioSocketClient;
 import org.joda.time.DateTime;
 import org.openjdk.jmh.annotations.*;
 import org.openjdk.jmh.runner.Runner;

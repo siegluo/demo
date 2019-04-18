@@ -28,15 +28,11 @@ public class EndPoint {
                 e.onNext(a);
                 e.onComplete();
 
-            }).subscribeOn(Schedulers.io()).observeOn(Schedulers.io())
-                    .subscribe(new Observer<Integer>() { // 第三步：订阅
-
-                        private int i = 0;
-                        private Disposable mDisposable;
+            }).subscribeOn(Schedulers.newThread()).observeOn(Schedulers.newThread())
+                    .subscribe(new Observer<Integer>() {
 
                         @Override
                         public void onSubscribe(@NonNull Disposable d) {
-                            mDisposable = d;
                         }
 
                         @Override
@@ -62,6 +58,18 @@ public class EndPoint {
                         public void onComplete() {
                         }
                     });
+            int integer = i + 100000;
+            if (integer % 5 == 0) {
+                discountRefundStateMachineEngine.fire(integer, Status.CONFIRMING, Trigger.APPLY_APPROVED, new Context(integer));
+            } else if (integer % 5 == 1) {
+                discountRefundStateMachineEngine.fire(integer, Status.CONFIRMING, Trigger.REJECT, new Context(integer));
+            } else if (integer % 5 == 2) {
+                discountRefundStateMachineEngine.fire(integer, Status.REFUND_APPROVING, Trigger.REFUND_APPROVED, new Context(integer));
+            } else if (integer % 5 == 3) {
+                discountRefundStateMachineEngine.fire(integer, Status.REFUND_APPROVED, Trigger.REFUND_FINISH_CONFIRM, new Context(integer));
+            } else if (integer % 5 == 4) {
+                discountRefundStateMachineEngine.fire(integer, Status.PENDING, Trigger.APPLY_CONFIRM, new Context(integer));
+            }
         }
     }
 }
