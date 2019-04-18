@@ -1,0 +1,4 @@
+server:
+  servlet:
+    path: /
+  port: 8180
