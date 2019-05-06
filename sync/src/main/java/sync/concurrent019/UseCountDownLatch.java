@@ -20,6 +20,19 @@ public class UseCountDownLatch {
 				}
 			}
 		},"t1");
+
+		Thread t4 = new Thread(new Runnable() {
+			@Override
+			public void run() {
+				try {
+					System.out.println("进入线程t4" + "等待其他线程处理完成...");
+					countDown.await();
+					System.out.println("t4线程继续执行...");
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
+			}
+		},"t1");
 		
 		Thread t2 = new Thread(new Runnable() {
 			@Override
@@ -49,6 +62,7 @@ public class UseCountDownLatch {
 		});
 		
 		t1.start();
+		t4.start();
 		t2.start();
 		t3.start();
 		
