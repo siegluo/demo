@@ -1,6 +1,5 @@
 package com.example.demo.util;
 
-import java.text.ParseException;
 import java.time.Instant;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -56,7 +55,7 @@ public class FormatUtils {
         return getSdf(pattern).format(date);
     }
 
-    public static LocalDate parse(String dateStr, String pattern) throws ParseException {
+    public static LocalDate parse(String dateStr, String pattern) {
         return LocalDate.parse(dateStr, getSdf(pattern));
     }
 

@@ -4,6 +4,7 @@ import java.nio.IntBuffer;
 
 /**
  * Buffer 会先在堆外内存（申请更耗资源但io性能高）申请一块空间，然后再复制到堆内内存
+ * -XX:+DisableExplicitGC
  */
 public class TestBuffer {
 	
