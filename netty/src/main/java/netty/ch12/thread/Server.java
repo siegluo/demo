@@ -31,7 +31,7 @@ public class Server {
             protected void initChannel(SocketChannel ch) {
                 ch.pipeline().addLast(new FixedLengthFrameDecoder(Long.BYTES));
                 ch.pipeline().addLast(businessGroup, ServerBusinessHandler.INSTANCE);
-//                ch.pipeline().addLast(ServerBusinessThreadPoolHandler.INSTANCE);
+                ch.pipeline().addLast(ServerBusinessThreadPoolHandler.INSTANCE);
             }
         });
 

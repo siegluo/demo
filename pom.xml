@@ -16,6 +16,7 @@
         <module>disruptor</module>
         <module>sync</module>
         <module>netty</module>
+        <module>springboot</module>
     </modules>
     <packaging>pom</packaging>
 
