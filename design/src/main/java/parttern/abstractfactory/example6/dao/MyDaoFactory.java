@@ -1,8 +1,9 @@
 package parttern.abstractfactory.example6.dao;
 
-import cn.javass.dp.abstractfactory.example6.dao.dao.DAOFactory;
-import cn.javass.dp.abstractfactory.example6.dao.impl.RdbDAOFactory;
-import cn.javass.dp.abstractfactory.example6.dao.impl.XmlDAOFactory;
+
+import parttern.abstractfactory.example6.dao.dao.DAOFactory;
+import parttern.abstractfactory.example6.dao.impl.RdbDAOFactory;
+import parttern.abstractfactory.example6.dao.impl.XmlDAOFactory;
 
 public class MyDaoFactory {
 	public static DAOFactory createDAOFactory(int type){

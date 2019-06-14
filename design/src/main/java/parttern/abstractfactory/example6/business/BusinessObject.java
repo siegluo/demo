@@ -1,9 +1,10 @@
 package parttern.abstractfactory.example6.business;
 
-import cn.javass.dp.abstractfactory.example6.dao.MyDaoFactory;
-import cn.javass.dp.abstractfactory.example6.dao.dao.DAOFactory;
-import cn.javass.dp.abstractfactory.example6.dao.impl.OrderDetailDAO;
-import cn.javass.dp.abstractfactory.example6.dao.impl.OrderMainDAO;
+
+import parttern.abstractfactory.example6.dao.MyDaoFactory;
+import parttern.abstractfactory.example6.dao.dao.DAOFactory;
+import parttern.abstractfactory.example6.dao.impl.OrderDetailDAO;
+import parttern.abstractfactory.example6.dao.impl.OrderMainDAO;
 
 public class BusinessObject {
 	public static void main(String[] args) {

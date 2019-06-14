@@ -1,20 +1,29 @@
 package com.example.demo.list;
 
+import org.apache.commons.collections.CollectionUtils;
+
 import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.Deque;
+import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class ListAdd {
 
     public static void main(String[] args) {
-        AtomicInteger a = new AtomicInteger(0);
-        boolean c =true;
-        getCount1(a,c);
-        ArrayList<Integer> list = new ArrayList<>();
-        Integer d = 0;
-        Integer b = getCount2(d,list);
-        System.out.println(a);
+        List<Integer> a = new ArrayList<Integer>();
+//        a.add(null);
+        a.addAll(new ArrayList<>());
+//        System.out.println(CollectionUtils.isNotEmpty(a));
+        System.out.println(CollectionUtils.isNotEmpty(a));
+
+//        AtomicInteger a = new AtomicInteger(0);
+//        boolean c =true;
+//        getCount1(a,c);
+//        ArrayList<Integer> list = new ArrayList<>();
+//        Integer d = 0;
+//        Integer b = getCount2(d,list);
+//        System.out.println(a);
 //        Deque<Integer> a = new ArrayDeque<>();
 //        ArrayList<Integer> b = new ArrayList<>();
 ////        a.push(1);
